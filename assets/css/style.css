@@ -1,0 +1,18 @@
+body {
+    background-image: url(../images/ancient-arch-arch-bridge-507410.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.opacity {
+    opacity: 0.4;
+}
+
+.opacity3 {
+    opacity: 0.9;
+}
+
+.opacity2 {
+    opacity: 0.9;
+}

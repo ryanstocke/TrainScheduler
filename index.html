@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>Train Schedule</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class='card-panel z-depth-3 #78909c blue-grey lighten-1 opacity white-text'>
+                <h3 class="center-align">Train Schedule</h3>
+            </div>
+
+            <div class='row'>
+                <div class='card-panel z-depth-3 #78909c opacity2 trainInfo'>
+                    <h4 class='center-align'>Current Train Schedule</h4>
+                    <table class="table striped center bordered responsive-table" id='trainTable'>
+                        <thead>
+                            <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency (minutes)</th>
+                                <th>Next Arrival</th>
+                                <th>Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='card-panel z-depth-3 #78909c opacity3'>
+                    <h4 class='center-align'>Add Another Train</h4>
+                    <form>
+                        <div class="input-field col s12">
+                            <input type="text" class="validate" id="trainNameInput">
+                            <label for="trainNameInput">Train Name</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" class="validate" id="destinationInput">
+                            <label for="destinationInput">Destination</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" class="timepicker validate" id="firstInput">
+                            <label class='active' for="firstInput">First Train (HH:mm)</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="number" class="validate" id="frequencyInput">
+                            <label for="frequencyInput">Frequency (minutes)</label>
+                        </div>
+                        <button type="submit" class="btn waves-effect waves-green" id="addTrainBtn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="assets/javascript/app.js">
+
+        </script>
+
+    </div>
+</body>
+
+</html>
