@@ -56,11 +56,16 @@ $("#addTrainBtn").on("click", function () {
   $("#frequencyInput").val("");
 });
 
-
+$("#trainTable tbody").on("click", ".remove", function(){
+  console.log(this);
+  var trainKey = $(this).attr("data-train-key")
+  console.log(trainKey);
+  database.ref().child(trainKey).remove()
+})
 
 
 database.ref().on("child_added", function(childSnapshot) {
-
+console.log(childSnapshot.key);
   var trainName = childSnapshot.val().trainName;
   var destination = childSnapshot.val().destination;
   var firstTrain = childSnapshot.val().firstTrain;
@@ -79,8 +84,14 @@ database.ref().on("child_added", function(childSnapshot) {
   var nextTrain = currentTime.add(minutesAway, "minutes");
 
   var nextArrival = moment(nextTrain).format("hh:mm");
-
-  $("#trainTable").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td></tr>");
+  var removeBtn = $("<button class = 'btn remove'>Remove</button>")
+    removeBtn.attr("data-train-key", childSnapshot.key)
+  var rowTr = $("<tr>")
+  var rowTd = $("<td>")
+  rowTd.append(removeBtn)
+  rowTr.append("<td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td>");
+  rowTr.append(rowTd);
+  $("#trainTable tbody").append(rowTr);
 
 }, function(errorObject) {
   console.log("Errors handled: " + errorObject.code);

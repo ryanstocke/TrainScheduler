@@ -16,3 +16,7 @@ body {
 .opacity2 {
     opacity: 0.9;
 }
+
+.timepicker {
+    opacity: 1 !important;
+}
